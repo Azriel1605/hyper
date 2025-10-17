@@ -7,6 +7,7 @@ from typing import Any, Dict
 
 import numpy as np
 from flask import Flask, render_template, request, redirect, url_for, flash
+import pandas as pd
 
 try:
     import joblib  # type: ignore
@@ -58,6 +59,16 @@ def map_inputs(form: Dict[str, Any]) -> Dict[str, Any]:
         "Smoking_Status": smoking_map.get(form.get("Smoking_Status", "never"), 0),
         "Diabetes": diabetes_map.get(form.get("Diabetes", "no"), 0),
         "Physical_Activity_Level": activity_map.get(form.get("Physical_Activity_Level", "moderate"), 1),
+        "Dump1":0,
+        "Dump2":0,
+        "Dump3":0,
+        "Dump4":0,
+        "Dump5":0,
+        "Dump6":0,
+        "Dump7":0,
+        "Dump8":0,
+        "Dump9":0,
+        "Dump10":0,
     }
 
 
@@ -73,7 +84,7 @@ def validate_required(mapped: Dict[str, Any]) -> str | None:
     return None
 
 
-def to_feature_vector(mapped: Dict[str, Any]) -> np.ndarray:
+def to_feature_vector(mapped: Dict[str, Any]) -> pd.DataFrame:
     # Urutan sesuai permintaan pengguna
     order = [
         "Glucose",
@@ -88,14 +99,26 @@ def to_feature_vector(mapped: Dict[str, Any]) -> np.ndarray:
         "Smoking_Status",
         "Diabetes",
         "Physical_Activity_Level",
+        "Dump1",
+        "Dump2",
+        "Dump3",
+        "Dump4",
+        "Dump5",
+        "Dump6",
+        "Dump7",
+        "Dump8",
+        "Dump9",
+        "Dump10",
     ]
-    return np.array([[float(mapped[k]) for k in order]], dtype=float)
+    # Buat dataframe dengan satu baris
+    df = pd.DataFrame([{k: float(mapped[k]) for k in order}], columns=order)
+    return df
 
 
 def fallback_probability(x: np.ndarray) -> float:
     # Heuristik ringan berbasis domain agar tidak random:
     # koefisien kasar untuk menaikkan/menurunkan risiko
-    glucose, sleep, salt, trig, hdl, bmi, hr, ldl, sys_bp, smoking, diab, act = x[0]
+    glucose, sleep, salt, trig, hdl, bmi, hr, ldl, sys_bp, smoking, diab, act, dump0, dump1, dump2, dump3, dump4, dump5, dump6, dump7, dump8, dump9  = x[0]
     z = 0.0
     z += 0.006 * (sys_bp - 120.0)
     z += 0.004 * (ldl - 100.0)
@@ -146,12 +169,16 @@ def predict():
 
     try:
         if model is not None and hasattr(model, "predict_proba"):
-            proba = float(model.predict_proba(x)[0][1])
+            print("first")
+            proba = float(model.predict_proba(x)[:, 1])
         elif model is not None and hasattr(model, "predict"):
+            print("second")
             # gunakan predict jika hanya tersedia, map ke 0/1 dengan probabilitas default
             pred = float(model.predict(x)[0])
             proba = 0.8 if pred >= 0.5 else 0.2
+            print("not using proba")
         else:
+            print("third") 
             proba = fallback_probability(x)
     except Exception as e:
         print(f"[v0] Error saat inferensi: {e}")

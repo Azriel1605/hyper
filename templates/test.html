@@ -9,7 +9,6 @@ form scoring test dengan input sesuai permintaan
     </div>
 
     <form action="{{ url_for('predict') }}" method="POST" class="score-card" novalidate>
-       Struktur tabel rasa 3 kolom: label | input | unit/keterangan 
       <div class="row">
         <div class="cell cell-label">Glucose</div>
         <div class="cell"><input type="number" step="1" min="0" name="Glucose" placeholder="Isi nilai" required /></div>
@@ -68,9 +67,9 @@ form scoring test dengan input sesuai permintaan
         <div class="cell cell-label">Smoking status</div>
         <div class="cell">
           <select name="Smoking_Status">
-            <option value="never">Never smoked</option>
-            <option value="former">Former smoker</option>
-            <option value="smoking">Smoking</option>
+            <option value="Never">Never smoked</option>
+            <option value="Former">Former smoker</option>
+            <option value="Current">Smoking</option>
           </select>
         </div>
         <div class="cell cell-unit">kategori</div>
@@ -80,8 +79,8 @@ form scoring test dengan input sesuai permintaan
         <div class="cell cell-label">Diabetes</div>
         <div class="cell">
           <select name="Diabetes">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
           </select>
         </div>
         <div class="cell cell-unit">biner</div>
@@ -91,9 +90,9 @@ form scoring test dengan input sesuai permintaan
         <div class="cell cell-label">Physical Activity Level</div>
         <div class="cell">
           <select name="Physical_Activity_Level">
-            <option value="low">Low</option>
-            <option value="moderate" selected>Moderate</option>
-            <option value="high">High</option>
+            <option value="Low">Low</option>
+            <option value="Moderate" selected>Moderate</option>
+            <option value="High">High</option>
           </select>
         </div>
         <div class="cell cell-unit">kategori</div>

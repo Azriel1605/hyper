@@ -168,26 +168,31 @@ body {
   padding: 14px 0;
   gap: 16px;
 }
+
+/* BRAND / LOGO */
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-family: Poppins, Inter, sans-serif;
-  letter-spacing: 0.2px;
 }
-.brand-mark {
-  width: 28px;
-  height: 28px;
-  display: inline-grid;
-  place-items: center;
-  background: var(--brand);
-  color: var(--white);
-  border-radius: 8px;
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
-.brand-name {
-  font-size: 20px;
+
+.brand-logo {
+  height: 56px;          /* ukuran agak besar */
+  width: auto;           /* biarkan proporsional */
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
 .nav {
   display: flex;
   gap: 18px;
@@ -250,7 +255,8 @@ body {
 }
 
 .hero {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(95, 202, 209, 0.12) 100%), #e9f7f8;
+  /* background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(95, 202, 209, 0.12) 100%), #e9f7f8; */
+  background: #93E1E8;
   border-bottom: 2px solid var(--neutral-200);
 }
 .hero-grid {
@@ -267,7 +273,7 @@ body {
   font-family: Poppins, Inter, sans-serif;
   font-weight: 800;
   font-size: clamp(28px, 4.5vw, 56px);
-  color: var(--brand-600);
+  color: white;
   margin: 0 0 10px 0;
 }
 .hero-subtitle {
@@ -286,9 +292,6 @@ body {
 .hero-visual img {
   width: 100%;
   height: auto;
-  border-radius: var(--radius);
-  border: 2px solid var(--neutral-200);
-  background: var(--white);
 }
 
 .section {
@@ -444,14 +447,55 @@ select:focus {
   opacity: 0;
 }
 
+/* ====== FOOTER ====== */
 .site-footer {
-  margin-top: 40px;
-  border-top: 2px solid var(--neutral-200);
-  background: var(--white);
+  position: relative;
+  background-color: #93E1E8; /* warna utama */
+  text-align: center;
+  color: #003C47; /* teks biru tua */
+  font-family: var(--font-body, 'Inter', sans-serif);
+  overflow: hidden;
 }
-.site-footer .container {
-  padding: 14px 0;
+
+/* Ilustrasi taman */
+.footer-illustration {
+  width: 100%;
+  height: 180px;
+  background-image: url("../images/hdsc-footer2.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  opacity: 0.95;
 }
+/* Animasi pergerakan horizontal halus */
+@keyframes scroll-bg {
+  from { background-position-x: 0; }
+  to { background-position-x: -1000px; }
+}
+
+/* Isi teks footer */
+.footer-content {
+  position: relative;
+  padding: 40px 0 20px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+/* Responsif */
+@media (max-width: 640px) {
+  .footer-illustration {
+    height: 120px;
+    background-size: cover;
+  }
+  .footer-content p {
+    font-size: 0.85rem;
+  }
+  .brand-logo {
+    height: 44px;
+  }
+}
+
 
 /* Responsif */
 @media (max-width: 900px) {

@@ -1,4 +1,3 @@
-halaman hero mengikuti gaya warna teal dari desain 
 {% extends "base.html" %}
 {% block title %}HDSC — What's your HDSC?{% endblock %}
 {% block content %}
@@ -19,13 +18,10 @@ halaman hero mengikuti gaya warna teal dari desain
       <img src="{{ url_for('static', filename='images/hdsc-hero.png') }}" alt="Ilustrasi gaya hidup sehat HDSC" />
     </div>
   </div>
-</section>
 
-<section id="application" class="section">
-  <div class="container">
-    <h2 class="section-title">Application</h2>
-    <p class="section-text">Gunakan tes untuk menilai faktor risiko Anda dan dapatkan rekomendasi gaya hidup yang lebih sehat.</p>
-    <img class="form-preview" src="{{ url_for('static', filename='images/hdsc-form.png') }}" alt="Pratinjau form scoring HDSC" />
-  </div>
+  <footer class="site-footer">
+  <div class="footer-illustration"></div>
+  </footer>
+
 </section>
 {% endblock %}

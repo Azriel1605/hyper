@@ -14,9 +14,16 @@
     <header class="site-header">
       <div class="container header-inner">
         <div class="brand">
-          <span class="brand-mark" aria-hidden="true">+</span>
-          <span class="brand-name">HDSC</span>
+          <a href="{{ url_for('home') }}" class="brand-link">
+            <img
+              src="{{ url_for('static', filename='images/logo.png') }}"
+              alt="HDSC Logo"
+              class="brand-logo"
+            />
+          </a>
         </div>
+
+
         <nav class="nav">
           <!-- Updated navigation links to point to correct routes -->
           <a href="{{ url_for('test') }}" class="nav-link">HDSC Test</a>
@@ -41,12 +48,6 @@
     <main>
       {% block content %}{% endblock %}
     </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© {{ 2025 }} HDSC. All rights reserved.</p>
-      </div>
-    </footer>
 
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
