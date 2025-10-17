@@ -1,35 +1,50 @@
-
 {% extends "base.html" %}
 {% block title %}Hasil Analisis — HDSC{% endblock %}
 {% block content %}
 <section class="section">
   <div class="container result">
+
     <h2 class="section-title">Hasil Analisis</h2>
-    <div class="card">
-      <p class="result-number" aria-live="polite">{{ percent }}%</p>
-      <p class="result-caption">Perkiraan kemungkinan mengalami hipertensi</p>
-      <div class="result-meter" role="img" aria-label="Meter risiko">
-        <div class="meter-track">
-          <div class="meter-fill" style="width: {{ percent }}%"></div>
+
+    <div class="result-wrapper">
+      
+      <!-- Kiri: Card hasil analisis -->
+      <div class="card result-card">
+        <p class="result-number" aria-live="polite">{{ percent }}%</p>
+        <p class="result-caption">Perkiraan kemungkinan mengalami hipertensi</p>
+        <div class="result-meter" role="img" aria-label="Meter risiko">
+          <div class="meter-track">
+            <div class="meter-fill" style="width: {{ percent }}%"></div>
+          </div>
+        </div>
+
+        <details class="details">
+          <summary>Detail input</summary>
+          <div class="kv">
+            {% for k, v in inputs.items() %}
+            <div class="kv-row">
+              <div class="kv-key">{{ k }}</div>
+              <div class="kv-val">{{ v }}</div>
+            </div>
+            {% endfor %}
+          </div>
+        </details>
+
+        <div class="back-actions">
+          <a href="{{ url_for('test') }}" class="btn btn-outline">Ulangi Tes</a>
+          <a href="{{ url_for('home') }}" class="btn btn-accent">Kembali ke Beranda</a>
         </div>
       </div>
-    </div>
 
-    <details class="details">
-      <summary>Detail input</summary>
-      <div class="kv">
-        {% for k, v in inputs.items() %}
-        <div class="kv-row">
-          <div class="kv-key">{{ k }}</div>
-          <div class="kv-val">{{ v }}</div>
-        </div>
-        {% endfor %}
+      <!-- Kanan: Card gambar -->
+      <div class="image-side">
+        <img src="{{ url_for('static', filename='images/' + image + '.png') }}" 
+            alt="Ilustrasi hipertensi" 
+            class="result-image">
+        <p class="image-caption">{{ text }}</p>
       </div>
-    </details>
 
-    <div class="back-actions">
-      <a href="{{ url_for('test') }}" class="btn btn-outline">Ulangi Tes</a>
-      <a href="{{ url_for('home') }}" class="btn btn-accent">Kembali ke Beranda</a>
+
     </div>
   </div>
 </section>

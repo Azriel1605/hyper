@@ -388,6 +388,8 @@ select:focus {
   gap: 10px;
 }
 
+
+
 .result {
   animation: fadeIn 0.6s ease-out;
 }
@@ -453,6 +455,46 @@ select:focus {
   font-family: var(--font-body, 'Inter', sans-serif);
   overflow: hidden;
 }
+
+/* Layout sejajar */
+.result-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap; /* agar responsif */
+}
+
+/* Card hasil analisis */
+.result-card {
+  flex: 1 1 400px;
+  min-width: 320px;
+}
+
+/* Sisi gambar */
+.image-side {
+  flex: 0 1 320px;
+  text-align: center;
+  background: transparent; /* transparan seperti permintaanmu */
+}
+
+/* Gambar */
+.result-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Teks placeholder di bawah gambar */
+.image-caption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+  font-style: italic;
+}
+
 
 /* Ilustrasi taman */
 .footer-illustration {

@@ -186,7 +186,27 @@ def predict():
         proba = float(model.predict_proba(x)[:, 1])
 
     percent = int(round(proba * 100))
-    return render_template("result.html", percent=percent, inputs=mapped)
+    
+    match percent:
+        case p if p <=10:        
+            image = "joypal"
+            text = f"Hello, I'm Joypal! Skor totalmu {percent} %. Ini menunjukkan prediksi risiko terjadinya hipertensi yang sangat rendah dalam 10 tahun ke depan. Kondisimu saat ini sangat baik! Pertahankan gaya hidup sehatmu agar Joypal tetap ceria. Kerja bagus!"
+        case p if p <=20:        
+            image = "chi"
+            text = f"Hello, I'm Chi! Skor totalmu {percent} %. Ini adalah prediksi risiko awal yang menunjukkan kemungkinan adanya kondisi prehipertensi atau faktor risiko lain yang perlu diperhatikan. Untuk memastikan kondisimu, data tekanan darah sangat diperlukan. Coba cek tekanan darahmu secara rutin dan update datanya di sini ya!"
+        case p if p <= 40:        
+            image = "amy"
+            text = f"Hi there, I'm Amy! Skor totalmu 20-40%. Ini adalah prediksi risiko yang mengindikasikan kemungkinan besar kamu berada dalam kondisi prehipertensi atau memiliki beberapa faktor risiko signifikan seperti riwayat merokok, kurang aktivitas fisik, IMT di atas 25, atau diabetes. Ini adalah tanda penting untuk mulai melakukan perubahan gaya hidup. Jangan khawatir, perubahan kecil hari ini bisa membuat perbedaan besar nanti. Ayo mulai misi sehat bersama Amy!"
+        case p if p <=60:        
+            image = "sally"
+            text = f"Hello... I'm Sally. Skor totalmu {percent} %  Ini adalah prediksi risiko sedang untuk mengalami hipertensi. Kondisi ini seringkali berhubungan dengan tekanan darah yang mulai meningkat (kemungkinan di rentang 130-139/80-89 mmHg) dan membutuhkan perhatian serta manajemen. Sangat disarankan untuk berkonsultasi dengan dokter untuk pemeriksaan lebih lanjut dan mendapatkan saran medis, sambil kita jalani misi harian untuk memperbaiki gaya hidup agar Sally bisa lebih ceria."
+        case p if p <=80:        
+            image = "fairy"
+            text = f"Oh dear... I'm Fairy. Skor totalmu {percent} % Ini adalah prediksi risiko tinggi untuk mengalami hipertensi. Kondisi ini kemungkinan besar berkaitan dengan tekanan darah yang sudah cukup tinggi (mungkin di atas 140/90 mmHg) dan membutuhkan manajemen yang serius. Mungkin terasa mengkhawatirkan, tapi mengambil tindakan sekarang sangat penting. Mohon segera cari dukungan medis profesional. Kami akan mendampingimu melalui misi harian untuk mendukung perubahan gaya hidupmu"
+        case p if p <=100:        
+            image = "annie"
+            text = f"Hmph! I'm Annie! Skor totalmu {percent}%. Ini adalah prediksi risiko yang sangat tinggi. Kondisi ini sangat mungkin berhubungan dengan tekanan darah yang sangat tinggi (bisa jadi di atas 180/120 mmHg) dan membutuhkan perhatian medis segera. Sangat penting untuk segera mencari bantuan medis profesional. Kami di sini untuk mendukungmu mengubah gaya hidup melalui misi harian, tetapi penanganan medis adalah prioritas utamamu saat ini."
+    return render_template("result.html", percent=percent, inputs=mapped, image=image, text=text)
 
 
 if __name__ == "__main__":
