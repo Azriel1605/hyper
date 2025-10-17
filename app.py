@@ -118,6 +118,7 @@ def to_feature_vector(mapped: Dict[str, Any]) -> pd.DataFrame:
 def fallback_probability(x: np.ndarray) -> float:
     # Heuristik ringan berbasis domain agar tidak random:
     # koefisien kasar untuk menaikkan/menurunkan risiko
+    print(x[0])
     glucose, sleep, salt, trig, hdl, bmi, hr, ldl, sys_bp, smoking, diab, act, dump0, dump1, dump2, dump3, dump4, dump5, dump6, dump7, dump8, dump9  = x[0]
     z = 0.0
     z += 0.006 * (sys_bp - 120.0)
