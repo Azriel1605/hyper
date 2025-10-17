@@ -180,10 +180,10 @@ def predict():
             print("not using proba")
         else:
             print("third") 
-            proba = fallback_probability(x)
+            proba = float(model.predict_proba(x)[:, 1])
     except Exception as e:
         print(f"[v0] Error saat inferensi: {e}")
-        proba = fallback_probability(x)
+        proba = float(model.predict_proba(x)[:, 1])
 
     percent = int(round(proba * 100))
     return render_template("result.html", percent=percent, inputs=mapped)
