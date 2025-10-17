@@ -1,0 +1,31 @@
+halaman hero mengikuti gaya warna teal dari desain 
+{% extends "base.html" %}
+{% block title %}HDSC — What's your HDSC?{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1 class="hero-title">What's your HDSC?</h1>
+      <p class="hero-subtitle">
+        Hypertension Disease Stage Character (HDSC) adalah tes berbasis gaya hidup
+        untuk mencegah hipertensi. Hasilnya berupa karakter yang merepresentasikan kondisi kesehatan Anda.
+      </p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-outline">About Character</a>
+        <a href="{{ url_for('test') }}" class="btn btn-accent">Take the Test →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="{{ url_for('static', filename='images/hdsc-hero.png') }}" alt="Ilustrasi gaya hidup sehat HDSC" />
+    </div>
+  </div>
+</section>
+
+<section id="application" class="section">
+  <div class="container">
+    <h2 class="section-title">Application</h2>
+    <p class="section-text">Gunakan tes untuk menilai faktor risiko Anda dan dapatkan rekomendasi gaya hidup yang lebih sehat.</p>
+    <img class="form-preview" src="{{ url_for('static', filename='images/hdsc-form.png') }}" alt="Pratinjau form scoring HDSC" />
+  </div>
+</section>
+{% endblock %}

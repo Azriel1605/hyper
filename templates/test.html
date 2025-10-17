@@ -1,0 +1,108 @@
+form scoring test dengan input sesuai permintaan 
+{% extends "base.html" %}
+{% block title %}Free Lifestyle Scoring Test — HDSC{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="banner">
+      <h2 class="banner-title">Free Lifestyle Scoring Test</h2>
+    </div>
+
+    <form action="{{ url_for('predict') }}" method="POST" class="score-card" novalidate>
+       Struktur tabel rasa 3 kolom: label | input | unit/keterangan 
+      <div class="row">
+        <div class="cell cell-label">Glucose</div>
+        <div class="cell"><input type="number" step="1" min="0" name="Glucose" placeholder="Isi nilai" required /></div>
+        <div class="cell cell-unit">mg/dL</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Sleep Duration</div>
+        <div class="cell"><input type="number" step="0.1" min="0" name="Sleep_Duration" placeholder="Contoh: 7.5" required /></div>
+        <div class="cell cell-unit">jam</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Salt Intake</div>
+        <div class="cell"><input type="number" step="0.1" min="0" name="Salt_Intake" placeholder="Contoh: 5" required /></div>
+        <div class="cell cell-unit">g/hari</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Triglycerides</div>
+        <div class="cell"><input type="number" step="1" min="0" name="Triglycerides" placeholder="Isi nilai" required /></div>
+        <div class="cell cell-unit">mg/dL</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">HDL</div>
+        <div class="cell"><input type="number" step="1" min="0" name="HDL" placeholder="Isi nilai" required /></div>
+        <div class="cell cell-unit">mg/dL</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">BMI</div>
+        <div class="cell"><input type="number" step="0.1" min="0" name="BMI" placeholder="Contoh: 24.3" required /></div>
+        <div class="cell cell-unit">kg/m²</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Heart Rate</div>
+        <div class="cell"><input type="number" step="1" min="0" name="Heart_Rate" placeholder="Isi nilai" required /></div>
+        <div class="cell cell-unit">bpm</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">LDL</div>
+        <div class="cell"><input type="number" step="1" min="0" name="LDL" placeholder="Isi nilai" required /></div>
+        <div class="cell cell-unit">mg/dL</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Systolic blood pressure</div>
+        <div class="cell"><input type="number" step="1" min="0" name="Systolic_BP" placeholder="Contoh: 120" required /></div>
+        <div class="cell cell-unit">mmHg</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Smoking status</div>
+        <div class="cell">
+          <select name="Smoking_Status">
+            <option value="never">Never smoked</option>
+            <option value="former">Former smoker</option>
+            <option value="smoking">Smoking</option>
+          </select>
+        </div>
+        <div class="cell cell-unit">kategori</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Diabetes</div>
+        <div class="cell">
+          <select name="Diabetes">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+        <div class="cell cell-unit">biner</div>
+      </div>
+
+      <div class="row">
+        <div class="cell cell-label">Physical Activity Level</div>
+        <div class="cell">
+          <select name="Physical_Activity_Level">
+            <option value="low">Low</option>
+            <option value="moderate" selected>Moderate</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="cell cell-unit">kategori</div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-accent">Analisis Sekarang</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
