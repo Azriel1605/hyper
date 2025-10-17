@@ -184,7 +184,7 @@ body {
 .brand-logo {
   height: 56px;          /* ukuran agak besar */
   width: auto;           /* biarkan proporsional */
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
