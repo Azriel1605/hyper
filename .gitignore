@@ -43,11 +43,6 @@ instance/
 .DS_Store
 Thumbs.db
 
-# Model
-model/model.pkl
-model/*.pkl
-model/*.joblib
-
 # Logs
 *.log
 logs/
