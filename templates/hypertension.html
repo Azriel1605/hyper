@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hypertension-page">
+  <!-- Hero Section dengan Gradient -->
+  <section class="hypertension-hero">
+    <div class="container">
+      <div class="hypertension-grid">
+        <div class="hypertension-content animate-slide-left">
+          <h1 class="hypertension-title">Hypertension</h1>
+          <p class="hypertension-desc">
+            <strong>Hypertension</strong>, also known as high or raised blood pressure is a condition where the blood vessels consistently have elevated pressure (140/90 mmHg or higher). Classification of office BP and definitions of hypertension grades (2023 ESH):
+          </p>
+        </div>
+        <div class="hypertension-visual animate-slide-right">
+          <img src="/placeholder.svg?height=200&width=200" alt="Hypertension character">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabel Klasifikasi -->
+  <section class="hypertension-table-section">
+    <div class="container">
+      <div class="table-wrapper animate-scale-in">
+        <table class="classification-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Systolic (mmHg)</th>
+              <th>Diastolic (mmHg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="animate-slide-up animate-stagger-1">
+              <td>Optimal</td>
+              <td>&lt;120</td>
+              <td>&lt;80</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-2">
+              <td>Normal</td>
+              <td>120–129</td>
+              <td>80–84</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-3">
+              <td>High-normal</td>
+              <td>130–139</td>
+              <td>85–89</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-4">
+              <td>Grade 1 hypertension</td>
+              <td>140–159</td>
+              <td>90–99</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-5">
+              <td>Grade 2 hypertension</td>
+              <td>160–179</td>
+              <td>100–109</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-1">
+              <td>Grade 3 hypertension</td>
+              <td>≥180</td>
+              <td>≥110</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-2">
+              <td>Isolated systolic hypertension*</td>
+              <td>≥140</td>
+              <td>&lt;90</td>
+            </tr>
+            <tr class="animate-slide-up animate-stagger-3">
+              <td>Isolated diastolic hypertension*</td>
+              <td>&lt;140</td>
+              <td>≥90</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.hypertension-page {
+  min-height: 100vh;
+}
+
+.hypertension-hero {
+  background: linear-gradient(135deg, #5fcad1 0%, #a8d8e8 50%, #f5d5e8 100%);
+  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hypertension-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.hypertension-title {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hypertension-desc {
+  color: #1f2937;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 55ch;
+  margin: 0;
+}
+
+.hypertension-visual img {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.hypertension-table-section {
+  padding: 48px 0;
+  background: #f7fafb;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.classification-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+.classification-table thead {
+  background: #42b9c1;
+  color: #ffffff;
+}
+
+.classification-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #d5d9de;
+}
+
+.classification-table td {
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.classification-table tbody tr:nth-child(odd) {
+  background: #f9fafb;
+}
+
+.classification-table tbody tr:hover {
+  background: #f0f9fa;
+  transition: background 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .hypertension-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hypertension-visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .hypertension-hero {
+    padding: 32px 0;
+  }
+  
+  .hypertension-title {
+    font-size: 32px;
+  }
+  
+  .classification-table {
+    font-size: 12px;
+  }
+  
+  .classification-table th,
+  .classification-table td {
+    padding: 10px 12px;
+  }
+}
+</style>
+{% endblock %}

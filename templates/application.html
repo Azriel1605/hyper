@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="application-page">
+  <section class="application-section">
+    <div class="container">
+      <div class="application-content animate-fade-in">
+        <h1 class="application-title animate-slide-down">Application</h1>
+        
+        <p class="application-desc animate-slide-up animate-stagger-1">
+          To help maintain good blood pressure along with a healthy lifestyle, you can download <strong>Shopee</strong> from the App Store or Google Play. The application is in the section <strong>Hadiah Shopee</strong>, featuring fun games that can be played daily and rewards that can be redeemed within the app.
+        </p>
+
+        <h2 class="download-title animate-slide-up animate-stagger-2">Download now!</h2>
+
+        <div class="download-buttons animate-slide-up animate-stagger-3">
+          <a href="#" class="download-badge">
+            <img src="/placeholder.svg?height=60&width=180" alt="Download on App Store">
+          </a>
+          <a href="#" class="download-badge">
+            <img src="/placeholder.svg?height=60&width=180" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.application-page {
+  min-height: 100vh;
+  background: #f7fafb;
+}
+
+.application-section {
+  padding: 64px 0;
+}
+
+.application-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.application-title {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  color: #5fcad1;
+  margin: 0 0 24px 0;
+}
+
+.application-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #1f2937;
+  margin: 0 0 32px 0;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.download-title {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #5fcad1;
+  margin: 32px 0 24px 0;
+}
+
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-badge {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.download-badge:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.download-badge img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .application-section {
+    padding: 40px 0;
+  }
+  
+  .application-title {
+    font-size: 28px;
+  }
+  
+  .application-desc {
+    font-size: 14px;
+  }
+  
+  .download-title {
+    font-size: 22px;
+  }
+}
+</style>
+{% endblock %}

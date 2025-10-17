@@ -117,6 +117,17 @@ def fallback_probability(x: np.ndarray) -> float:
 def home():
     return render_template("index.html")
 
+@app.route("/hypertension")
+def hypertension():
+    return render_template("hypertension.html")
+
+@app.route("/application")
+def application():
+    return render_template("application.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 @app.route("/test")
 def test():
